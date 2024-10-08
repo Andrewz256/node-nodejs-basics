@@ -1,5 +1,14 @@
+import { readdir } from 'fs/promises';
+
 const list = async () => {
-    // Write your code here 
+        try {
+            let list = await readdir('./src/fs/files', {recursive: true});
+            console.log(list);
+            console.log('file list HERE');
+        }
+        catch (err) {
+            console.error('FS operation failed: path not exist');
+        }
 };
 
 await list();
